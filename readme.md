@@ -63,11 +63,14 @@ Esse projeto contempla os seguintes serviços:
 
 São requisitos para o sistema funcionar corretamente:
 
-- Apache2
+- Debian (Recomendado versão mais atualizada)
+- Apache2 (Recomendado versão mais atualizada)
 - PHP 7.2 ou superior (recomendado 8+)
-- MariaDB e PHPMyAdmin
+- MariaDB e PHPMyAdmin (Recomendado versão mais atualizada)
 - 1 Gb de armazenamento livre (Recomendado 10+ Gb)
 - Memória RAM de 4 GB (Recomendado 8+ Gb)
+
+Obs: Para ambiente de testes e desenvolvimento, usei Windows 10 + XAMPP + VS Code + Google Chrome
 
 ## Instalação
 
@@ -95,29 +98,32 @@ cd sisint
 nano ./recursos/models/conexao.php   # pode ser feito através do VS Code ou outro editor
 ```
 
-4. Configurações adicionais, sugeridas:
-
-- Alterar o arquivo ./recursos/assets/favicon.png pelo ícone desejado (Recomendo que seja no mesmo tamanho); e
-- Alterar o arquivo ./recursos/assets/wallpaper.png por uma imagem de sua OM para que possa compor o plano de fundo da tela de login.
-- Alterar os serviços e links no arquivo helpdesk/index_userSupAdm.php
+4. 
 
 ## Configuração
 
 1. Abra o arquivo de configuração:
 
-    ```bash
-    nano recursos/models/conexao.php
-    ```
+```bash
+nano recursos/models/conexao.php
+```
+- A variável test deve estar em true somente em servidor de desenvolvimento e testes.
 
-2. Edite as configurações conforme necessário.
-    - A variável test deve estar em true somente em servidor de desenvolvimento e testes.
+2. Configurações adicionais, sugeridas:
+
+- Alterar o arquivo ./recursos/assets/favicon.png pelo ícone desejado (Recomendo que seja no mesmo tamanho); e
+- Alterar o arquivo ./recursos/assets/wallpaper.png por uma imagem de sua OM para que possa compor o plano de fundo da tela de login.
+- Alterar os serviços e links no arquivo helpdesk/index_userSupAdm.php
 
 ## Acesso inicial
 
-1. Inicie a aplicação:
+1. Inicie a aplicação e permita que seja executada ao inicializar o sistema operacional:
 
 ```bash
-service apache2 start
+sudo systemctl start apache2
+sudo systemctl start mysql
+sudo systemctl start apache2
+
 ```
 
 2. Abra o navegador e acesse usando o link http://endereco/sisint , aqui deve aparecer ua tela de login.
@@ -144,28 +150,14 @@ No painel superior você pode verificar em qual módulo do sistema você está.
 Passando o mouse sobre ícones podemos ver a dica da sua função. Na imagem estão os botões de logout, tela inicial e reportar erro. Clicamos sobre a engrenagem.
 
 ![Captura de Tela 2](capturas/Captura4.png)
-Descrição opcional da segunda captura de tela.
+O menu lateral tem suas funções variadas conforme onde estamos navegando. Nele temos os principais atalhos para as funcionalidades. Acessaremos controle de pessoal
 
-![Captura de Tela 2](capturas/Captura5.png)
-Descrição opcional da segunda captura de tela.
+![Captura de Tela 5](capturas/Captura5.png)
+Observe que o menu lateral possui outros link. Aqui poderemos clicar em adicionar usuários.
 
-![Captura de Tela 2](capturas/Captura6.png)
-Descrição opcional da segunda captura de tela.
+Chegou a hora de cadastrar o efetivo de nossa OM, esse trabalho é manual e precisa ser feito com calma, atentanto principalmente ao cadastro do CPF, por este ser o dado de login e senha inicial e do nível de acesso do usuário. A atualização dos dados pode ser feito posteriormente, pemitindo desativar usuários.
 
-![Captura de Tela 2](capturas/Captura7.png)
-Descrição opcional da segunda captura de tela.
 
-![Captura de Tela 2](capturas/Captura8.png)
-Descrição opcional da segunda captura de tela.
-
-![Captura de Tela 2](capturas/Captura9.png)
-Descrição opcional da segunda captura de tela.
-
-![Captura de Tela 2](capturas/Captura10.png)
-Descrição opcional da segunda captura de tela.
-
-![Captura de Tela 2](capturas/Captura11.png)
-Descrição opcional da segunda captura de tela.
 
 ## Contribuição
 
@@ -179,4 +171,4 @@ Se quiser contribuir, siga os passos abaixo:
 
 ## Licença
 
-Este projeto é licenciado sob a [Sua Licença](LICENSE).
+Este projeto é licenciado sob a [Licença Pública Geral GNU (GPL) versão 3](LICENSE).
