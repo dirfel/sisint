@@ -38,6 +38,7 @@ Esse projeto contempla os seguintes serviços:
 
 - Controle de Pessoal
     - Livro de Afastamento da Guarnição
+    - Aniversariantes do mês
     - Cadastro/Desativação/Modificação do Público interno
     - Relatório do plano de chamada com link para conversa no Whatsapp e busca de endereço no google maps
     - Ficha do Cadben para impressão
@@ -58,6 +59,7 @@ Esse projeto contempla os seguintes serviços:
     - Obriga o usuário a manter senha forte e bloqueia por um dia o usuário que errar a senha 10 vezes consecutivas
     - gera logs de quase todos os eventos, permitindo auditoria dos dados
     - permite a criação de backup
+    - níveis de acesso
 
 ## Pré-requisitos
 
@@ -157,10 +159,14 @@ Observe que o menu lateral possui outros link. Aqui poderemos clicar em adiciona
 
 Chegou a hora de cadastrar o efetivo de nossa OM, esse trabalho é manual e precisa ser feito com calma, atentanto principalmente ao cadastro do CPF, por este ser o dado de login e senha inicial e do nível de acesso do usuário. A atualização dos dados pode ser feito posteriormente, pemitindo desativar usuários.
 
+O próximo passo é realizar o cadastro das viaturas em http://endereco/sisint/logistica/gestao_viaturas.php
+Obs: O Módulo logística não esta 100% implementado, por isso não há link que direcione o usuário a essa pasta.
+
 
 
 ## Contribuição
 
+Em breve criarei um TODO_LIST e disponibilizarei para direcionar esforços a quem queira contribuir.
 Se quiser contribuir, siga os passos abaixo:
 
 1. Faça um fork do projeto.
