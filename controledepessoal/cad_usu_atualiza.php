@@ -66,7 +66,7 @@ $reg_usu = read_usuario_by_id($idusuario);
                         <?php render_radio_button('Cabo Gda', 'contaguarda2', 'contaguarda', 2, ($reg_usu["contaguarda"] == 2));?>
                         <?php render_radio_button('Oficial e Sargento', 'contaguarda3', 'contaguarda', 3, ($reg_usu["contaguarda"] == 3));?>
                         <?php render_radio_button('Supervisor', 'contaguarda4', 'contaguarda', 4, ($reg_usu["contaguarda"] == 4));?>
-                        <?php render_radio_button('Administrador', 'contaguarda4', 'contaguarda', 4, ($reg_usu["contaguarda"] == 5));?>
+                        <?php render_radio_button('Administrador', 'contaguarda5', 'contaguarda', 5, ($reg_usu["contaguarda"] == 5));?>
                       </div>
                     </div>
                     <div class="col-sm-6 col-md-3"><!--niveis acesso-->
