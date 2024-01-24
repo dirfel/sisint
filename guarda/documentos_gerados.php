@@ -503,12 +503,14 @@ if ($relatorio == 'Pronto de Viaturas') {
       echo "<th align='center' valign='middle'><font size=1.0> P2 </font></th>";
       echo "<th align='center' valign='middle'><font size=1.0> P3 </font></th>";
       echo "<th align='center' valign='middle'><font size=1.0> P4 </font></th>";
+      echo "<th align='center' valign='middle'><font size=1.0> P5 </font></th>";
+      echo "<th align='center' valign='middle'><font size=1.0> P6 </font></th>";
       echo "<th align='center' valign='middle'><font size=1.0> Aloj </font></th>";
       echo "<th align='center' valign='middle'><font size=1.0> Bia Msl </font></th>";
       echo "</tr>";
       for ($i = 0; $i < $consulta_postos_count; $i++) {
         $reg_postos = $consulta_postos_total[$i];
-        $postos_sv = array('p1', 'p2', 'p3', 'p4', /*'p5', 'p6',*/ 'aloj1', 'aloj2');
+        $postos_sv = array('p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'aloj1', 'aloj2');
         echo "<tr>";
         echo "<th align='center' valign='middle'><font size=1.0> " . $reg_postos['quartohora'] . " </font></th>";
         foreach($postos_sv as $posto_sv) {
@@ -554,6 +556,8 @@ if ($relatorio == 'Pronto de Viaturas') {
         echo "<th align='center' valign='middle' width=9%><font size=1.0> P2 </font></th>";
         echo "<th align='center' valign='middle' width=9%><font size=1.0> P3 </font></th>";
         echo "<th align='center' valign='middle' width=9%><font size=1.0> P4 </font></th>";
+        echo "<th align='center' valign='middle' width=9%><font size=1.0> P5 </font></th>";
+        echo "<th align='center' valign='middle' width=9%><font size=1.0> P6 </font></th>";
         echo "<th align='center' valign='middle' width=8%><font size=1.0> Aloj </font></th>";
         echo "<th align='center' valign='middle' width=8%><font size=1.0> Bia Msl </font></th>";
         echo "</tr>\n";
@@ -565,7 +569,7 @@ if ($relatorio == 'Pronto de Viaturas') {
           echo "<tr>";
           echo "<th align='center' valign='middle' width=15%><font size=1.0> " . $reg['hora_r'] . " " . $reg['data_r'] . " </font></th>";
           echo "<th align='center' valign='middle' width=15%><font size=1.0> " . consultaMilitar3($reg['idmembro']) . " </font></th>";
-          $postos_sv = array('p1', 'p2', 'p3', 'p4', /*'p5', 'p6',*/ 'aloj1', 'aloj2');
+          $postos_sv = array('p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'aloj1', 'aloj2');
           foreach($postos_sv as $posto_sv) {
             $mil = consultaMilitar3($reg[$posto_sv]);
             echo "<th align='center' valign='middle' width=9%><font size=1.0> " . (($mil == '' || $mil == ' ') ? '---' : $mil) . " </font></th>"; 
