@@ -34,19 +34,13 @@ define('SUBORDINACAO', '4ª Brigada de Cavalaria Mecanizada'); // nome da om a q
 define('CIDADE', 'Três Lagoas'); // nome da cidade que a om está localizada
 define('UF', 'MS'); // Abreviatura do estado
 
-
-
 /* Configurações do sistema */
 define('PASTA_RAIZ', '/var/www/html/sisint/'); // caminho da raiz do codigo php
 define('PASTA_BKP', '/var/www/bkp/'); // caminho da pasta de backup do codigo php. Exige que a pasta seja do usuario www-data. Corrije com o comando: "chown www-data /var/www/bkp"
 
-
-
 /**
  * @param Atenção! Não modificar nada daqui para baixo
  */
-
-
 
 /* Recursos que estão integrados a esta página */
 include_once '../recursos/classes/pdo.php';            // Conexão com o banco de dados mysql
