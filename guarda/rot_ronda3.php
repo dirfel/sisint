@@ -10,6 +10,8 @@ $postos_sentinelas = array(
   "p2" => "Posto 02",
   "p3" => "Posto 03",
   "p4" => "Posto 04",
+  "p5" => "Posto 05",
+  "p6" => "Posto 06",
   "aloj1" => "Alojamento",
   "aloj2" => "Bia Msl"
 );

@@ -188,6 +188,60 @@ if ($quartohora_tipo == 'P') {
                       </div>
                     </div>
                     <div class="form-group col-md-3">
+                      <label for="inputMaxLength" class="control-label">Posto 05:</label>
+                      <div class="input-group mb-sm">
+                        <span class="input-group-addon "><i class="fa fa-fire"></i></span>
+                        <select name="p5" id="p5" class="form-control select" style="width: 100%" required>
+                          <?php
+                          $consulta = $pdo->prepare("SELECT rel_rot_guarda.idmembro, rot_guarda_funcao.nomefuncao FROM rel_rot_guarda LEFT JOIN rot_guarda_funcao ON rel_rot_guarda.idfuncao = rot_guarda_funcao.idfuncao 
+                            WHERE rel_rot_guarda.idfuncao > 9 AND rel_rot_guarda.data = :data ORDER BY rel_rot_guarda.id ASC, rel_rot_guarda.idfuncao ASC");
+                          $consulta->bindParam(":data", $data, PDO::PARAM_STR);
+                          $consulta->execute();
+                          echo ("<option>Sem Militar</option>");
+                          echo ("<optgroup label='Militar da OM'>");
+                          while ($reg = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                            $select_usuarios = $pdo2->prepare("SELECT nomeguerra, idpgrad FROM usuarios WHERE usuarios.id = :idmembro");
+                            $select_usuarios->bindParam(":idmembro", $reg['idmembro'], PDO::PARAM_INT);
+                            $select_usuarios->execute();
+                            while ($reg2 = $select_usuarios->fetch(PDO::FETCH_ASSOC)) {
+                              $nome_usuarios = $reg2['nomeguerra'];
+                              $pg_usuarios = getPGrad($reg2['idpgrad']);
+                            }
+                            echo ("<option value=" . base64_encode($reg['idmembro']) . ">" . $pg_usuarios . " - " . $nome_usuarios . " - (" . $reg['nomefuncao'] . ")</option>");
+                          }
+                          echo ("</optgroup>");
+                          ?>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="inputMaxLength" class="control-label">Posto 06:</label>
+                      <div class="input-group mb-sm">
+                        <span class="input-group-addon "><i class="fa fa-fire"></i></span>
+                        <select name="p6" id="p6" class="form-control select" style="width: 100%" required>
+                          <?php
+                          $consulta = $pdo->prepare("SELECT rel_rot_guarda.idmembro, rot_guarda_funcao.nomefuncao FROM rel_rot_guarda LEFT JOIN rot_guarda_funcao ON rel_rot_guarda.idfuncao = rot_guarda_funcao.idfuncao 
+                            WHERE rel_rot_guarda.idfuncao > 9 AND rel_rot_guarda.data = :data ORDER BY rel_rot_guarda.id ASC, rel_rot_guarda.idfuncao ASC");
+                          $consulta->bindParam(":data", $data, PDO::PARAM_STR);
+                          $consulta->execute();
+                          echo ("<option>Sem Militar</option>");
+                          echo ("<optgroup label='Militar da OM'>");
+                          while ($reg = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                            $select_usuarios = $pdo2->prepare("SELECT nomeguerra, idpgrad FROM usuarios WHERE usuarios.id = :idmembro");
+                            $select_usuarios->bindParam(":idmembro", $reg['idmembro'], PDO::PARAM_INT);
+                            $select_usuarios->execute();
+                            while ($reg2 = $select_usuarios->fetch(PDO::FETCH_ASSOC)) {
+                              $nome_usuarios = $reg2['nomeguerra'];
+                              $pg_usuarios = getPGrad($reg2['idpgrad']);
+                            }
+                            echo ("<option value=" . base64_encode($reg['idmembro']) . ">" . $pg_usuarios . " - " . $nome_usuarios . " - (" . $reg['nomefuncao'] . ")</option>");
+                          }
+                          echo ("</optgroup>");
+                          ?>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-3">
                       <label for="inputMaxLength" class="control-label">Alojamento:</label>
                       <div class="input-group mb-sm">
                         <span class="input-group-addon "><i class="fa fa-fire"></i></span>

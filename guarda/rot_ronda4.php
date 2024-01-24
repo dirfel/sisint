@@ -46,6 +46,8 @@ $p1 = base64_decode(filter_input(INPUT_POST, "p1", FILTER_SANITIZE_SPECIAL_CHARS
 $p2 = base64_decode(filter_input(INPUT_POST, "p2", FILTER_SANITIZE_SPECIAL_CHARS));
 $p3 = base64_decode(filter_input(INPUT_POST, "p3", FILTER_SANITIZE_SPECIAL_CHARS));
 $p4 = base64_decode(filter_input(INPUT_POST, "p4", FILTER_SANITIZE_SPECIAL_CHARS));
+$p5 = base64_decode(filter_input(INPUT_POST, "p5", FILTER_SANITIZE_SPECIAL_CHARS));
+$p6 = base64_decode(filter_input(INPUT_POST, "p6", FILTER_SANITIZE_SPECIAL_CHARS));
 $aloj1 = base64_decode(filter_input(INPUT_POST, "aloj1", FILTER_SANITIZE_SPECIAL_CHARS));
 $aloj2 = base64_decode(filter_input(INPUT_POST, "aloj2", FILTER_SANITIZE_SPECIAL_CHARS));
 $obs2 = filter_input(INPUT_POST, "obs", FILTER_SANITIZE_STRING);
@@ -91,8 +93,8 @@ $stmtez->bindParam(":obs", $obs2, PDO::PARAM_STR);
 
     
 } else if($tipo == 'ronda') {
-  $stmtez = $pdo1->prepare("INSERT INTO rel_rot_ronda(idmembro, idusuario, tipo, idfuncao, alteracao, data_r, hora_r, p1, p2, p3, p4, aloj1, aloj2, obs)"
-  . "VALUES (:idmembro, :idusuario, :tipo, :idfuncao, :alteracao, :data_r, :hora_r, :p1, :p2, :p3, :p4, :aloj1, :aloj2, :obs)");
+  $stmtez = $pdo1->prepare("INSERT INTO rel_rot_ronda(idmembro, idusuario, tipo, idfuncao, alteracao, data_r, hora_r, p1, p2, p3, p4, p5, p6, aloj1, aloj2, obs)"
+  . "VALUES (:idmembro, :idusuario, :tipo, :idfuncao, :alteracao, :data_r, :hora_r, :p1, :p2, :p3, :p4, :p5, :p6, :aloj1, :aloj2, :obs)");
 
     $stmtez->bindParam(":idmembro", $idmembro, PDO::PARAM_INT);
 
@@ -107,13 +109,15 @@ $stmtez->bindParam(":p1", $p1, PDO::PARAM_INT);
 $stmtez->bindParam(":p2", $p2, PDO::PARAM_INT);
 $stmtez->bindParam(":p3", $p3, PDO::PARAM_INT);
 $stmtez->bindParam(":p4", $p4, PDO::PARAM_INT);
+$stmtez->bindParam(":p5", $p5, PDO::PARAM_INT);
+$stmtez->bindParam(":p6", $p6, PDO::PARAM_INT);
 $stmtez->bindParam(":aloj1", $aloj1, PDO::PARAM_INT);
 $stmtez->bindParam(":aloj2", $aloj2, PDO::PARAM_INT);
 $stmtez->bindParam(":obs", $obs2, PDO::PARAM_STR);
 
 } else {
-  $stmtez = $pdo1->prepare("INSERT INTO rel_rot_ronda(idmembro, idusuario, tipo, data_p, hora_p, idfuncao, alteracao, data_r, hora_r, p1, p2, p3, p4, aloj1, aloj2, obs)"
-  . "VALUES (:idmembro, :idusuario, :tipo, :data_p, :hora_p, :idfuncao, :alteracao, :data_r, :hora_r, :p1, :p2, :p3, :p4, :aloj1, :aloj2, :obs)");
+  $stmtez = $pdo1->prepare("INSERT INTO rel_rot_ronda(idmembro, idusuario, tipo, data_p, hora_p, idfuncao, alteracao, data_r, hora_r, p1, p2, p3, p4, p5, p6, aloj1, aloj2, obs)"
+  . "VALUES (:idmembro, :idusuario, :tipo, :data_p, :hora_p, :idfuncao, :alteracao, :data_r, :hora_r, :p1, :p2, :p3, :p4, :p5, :p6, :aloj1, :aloj2, :obs)");
 
 $stmtez->bindParam(":idmembro", $idmembro, PDO::PARAM_INT);
 $stmtez->bindParam(":idusuario", $_SESSION['auth_data']['id'], PDO::PARAM_INT);
@@ -128,6 +132,8 @@ $stmtez->bindParam(":p1", $p1, PDO::PARAM_INT);
 $stmtez->bindParam(":p2", $p2, PDO::PARAM_INT);
 $stmtez->bindParam(":p3", $p3, PDO::PARAM_INT);
 $stmtez->bindParam(":p4", $p4, PDO::PARAM_INT);
+$stmtez->bindParam(":p5", $p5, PDO::PARAM_INT);
+$stmtez->bindParam(":p6", $p6, PDO::PARAM_INT);
 $stmtez->bindParam(":aloj1", $aloj1, PDO::PARAM_INT);
 $stmtez->bindParam(":aloj2", $aloj2, PDO::PARAM_INT);
 $stmtez->bindParam(":obs", $obs2, PDO::PARAM_STR);
